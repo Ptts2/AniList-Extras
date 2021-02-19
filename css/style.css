@@ -1,0 +1,20 @@
+
+
+.about .content-wrap[data-v-5c30286e]:hover { 
+    overflow: overlay !important;
+}
+.about .content-wrap[data-v-5c30286e]:hover::-webkit-scrollbar { 
+    width:4px ;
+}
+
+.about .content-wrap[data-v-5c30286e]:hover::-webkit-scrollbar-thumb {
+    background: #363d50;
+    border-radius: 10px;
+    box-shadow: inset 7px 7px 12px #363D50;
+}
+
+.about .content-wrap[data-v-5c30286e]:hover::-webkit-scrollbar-track {
+   
+    border-radius: 10px;
+}
+

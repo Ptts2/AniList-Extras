@@ -66,10 +66,8 @@
 			grid-template-columns: 180px auto !important;
 		}
 	`);
-	/* eslint-enable */
 
-	const $ = selector => document.querySelector(selector);
-	const $$ = a => Array.from(document.querySelectorAll(a));
+	/* eslint-enable */
 
 	const isUserscript = typeof GM_info !== 'undefined'; // eslint-disable-line
 
@@ -117,6 +115,8 @@
 					anilist.helpers.addViewToggle('.characters .link, .staff .link', '.characters .grid-wrap, .staff .grid-wrap');
 					if (isAnime) await this.displayOpEd(this.currentData.mal_id);
 				}
+
+
 
 				return this.stopRunning();
 			},
