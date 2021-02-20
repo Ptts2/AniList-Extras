@@ -16,19 +16,11 @@
 
 ## Installation
 
-[**Chrome Web Store**](https://chrome.google.com/webstore/detail/ahcnhicbflgjhemogkbiknblbogeemih)
+[**Chrome Web Store**](-)
 
-[**Firefox Add-ons**](https://addons.mozilla.org/en-US/firefox/addon/anilist-extras/)
+[**Firefox Add-ons**](-)
 
-[**Userscript**](https://github.com/pilar6195/AniList-Extras/raw/master/anilist-extras.user.js)
-
-> If the above link just opens the file, it means your browser lacks a userscript manager. If that's the case then install one like TamperMonkey with the links provided below and then click on the above link again to finish the AniList Extras installation process.
-
-##### Getting TamperMonkey
-
-- [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-- [Firefox](https://addons.mozilla.org/firefox/addon/tampermonkey/)
-- [Edge](https://www.microsoft.com/store/apps/9NBLGGH5162S)
+[**Userscript**](-)
 
 ## Planned Features (maybe)
 
@@ -37,7 +29,8 @@
 - Add toggle to only show anime that is in the user's list on the `/staff` page.
 
 ## Credits
-
+THIS IS ONLY A FORK FROM [Anilist-Extras](https://github.com/pilar6195/AniList-Extras)
+- [Pilar](https://github.com/pilar6195) Original creator of the extension
 - [Kana](https://github.com/Pitu) For this readme, the banner, and improvements to the script itself.
 - [Arkon](https://github.com/arkon) For contributing and adding new features.
 - [Jikan](https://jikan.moe/) For the MAL API. Made my life sooo much easier.
