@@ -101,7 +101,6 @@
 
 				if (!this.currentData) {
 					const malID = await anilist.helpers.getMalID(isAnime);
-					console.log(malID);
 					if (!malID) {
 						return this.stopRunning();
 					}
@@ -491,22 +490,9 @@
 				const malId =  await anilist.helpers.getMalID(true);
 				const epData = await anilist.helpers.getEpisodesData(malId);
 				const lastPage = epData.episodes_last_page;
-				console.log(lastPage);
 
 				var pages = new Array();
 				pages[0] = epData.episodes;
-
-
-				/* Check for multiple pages, paginated after 100 episodes */
-				if(lastPage > 1) {
-
-					for(var i = 1; i<lastPage; i++ ){
-
-						var epDataPage = await anilist.helpers.getEpisodesData(malId, i+1);
-						pages[i] = epDataPage.episodes;
-
-					}
-				}
 
 				if (!$('.episodeStats') && pages.length) {
 
@@ -515,31 +501,51 @@
 	
 					epHeader.innerText = 'Episodes';
 					epContainer.append(epHeader);
+					var hidden = false;
+					for (var i = 0; i<lastPage; i++){
 
-
-
-					for (const i in pages){
+						if(i > 0){
+							var epDataPage = await anilist.helpers.getEpisodesData(malId, i+1);
+							pages[i] = epDataPage.episodes;
+						}
 
 						for (const j in pages[i]){
 
-							const episode = pages[i][j];
+							if(i==0 && j==5) hidden=true;
 
+							const episode = pages[i][j];
+							
 							const epCard = anilist.helpers.createElement('div',{
 
 								[attrName]: '',
-								class: `tag ${ (j>2 || i > 5) ? 'showmore hide' : ''}`
+								class: `tag ${ hidden ? 'showmore hide' : ''}`
 							}, {marginBottom: '10px'});
-							epCard.innerHTML = `<div style="display: flex; justify-content: space-around">
-													<div>#${ episode.episode_id }:</div> 
-													<div>${episode.title} <b>&emsp;&emsp;Filler:</b> ${episode.filler? '&nbsp;Yes':'&nbsp;No'} </div>
-													<div><b>&emsp;&emsp;Recap: </b> ${episode.recap? '&nbsp;Yes':'&nbsp;No'}</div>
-													</div>`
+							epCard.innerHTML = `<div data-v-c657baee class="data-set">
+													<div data-v-c657baee class="type">
+														#${ episode.episode_id }:&nbsp; 
+														<b><a href="${episode.video_url}">
+														
+														${episode.title} ${episode.title_romanji !=null ? "("+episode.title_romanji.trim()+")" : ''}
+														
+														
+														</a></b>
+													</div>
+													<div data-v-c657baee class="value">
+														<span data-v-c657baee>
+															<b>\nFiller:</b> ${episode.filler? '&nbsp;Yes':'&nbsp;No'}
+															<br data-v-c657baee>
+														</span>
+														<span data-v-c657baee>
+															<b>Recap:</b> ${episode.recap? '&nbsp;Yes':'&nbsp;No'}
+														</span>
+													</div>
+												</div>`
 							epContainer.append(epCard)
 
 						}
 					}
 
-					if (animeData.episodes > 5) {
+					if (pages[0].length > 5) {
 						const toggleEpisodes = anilist.helpers.createElement('div', {}, { textAlign: 'center' });
 						const button = anilist.helpers.createElement('a', { id: 'toggleOpenings', href: 'javascript:void(0);', 'data-visible': '0' });
 
@@ -954,7 +960,7 @@
 
 			async getMalData(malID, isAnime = true) {
 				try {
-					console.log(malID);
+					
 					const res = await anilist.helpers.request({
 						url: `https://api.jikan.moe/v3/${isAnime ? 'anime' : 'manga'}/${malID}`,
 						method: 'GET'
@@ -968,8 +974,6 @@
 
 			async getEpisodesData(malId, page = 1) {
 				try {
-					console.log(malId);
-					console.log(page);
 					const res = await anilist.helpers.request({
 						url: `https://api.jikan.moe/v3/anime/${malId}/episodes/${page}`,
 						method: 'GET'
