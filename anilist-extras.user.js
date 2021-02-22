@@ -592,7 +592,7 @@
 			cleanUp() {
 				if ($('.characters')) $('.characters').classList.remove('mal');
 				if ($('.character-header')) $('.character-header').innerText = 'Characters';
-				const elements = $$('.MyAnimeList, .mal-score, .toggle, .grid-wrap.mal, #toggleCharacters, .openings, .endings');
+				const elements = $$('.MyAnimeList, .mal-score, .toggle, .grid-wrap.mal, #toggleCharacters, .openings, .endings, .episodeStats');
 				for (const el of elements) el.remove();
 				this.currentData = null;
 			}
