@@ -18,3 +18,25 @@
     border-radius: 10px;
 }
 
+
+.text[data-v-6c3dc0b8] .markdown:hover {
+    overflow-y: auto;
+}
+
+.text[data-v-6c3dc0b8] .markdown:hover { 
+    overflow: overlay !important;
+}
+.text[data-v-6c3dc0b8] .markdown:hover::-webkit-scrollbar { 
+    width:4px ;
+}
+
+.text[data-v-6c3dc0b8] .markdown:hover::-webkit-scrollbar-thumb {
+    background: #363d50;
+    border-radius: 10px;
+    box-shadow: inset 7px 7px 12px #363D50;
+}
+
+.text[data-v-6c3dc0b8] .markdown:hover::-webkit-scrollbar-track {
+   
+    border-radius: 10px;
+}
