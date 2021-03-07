@@ -73,20 +73,20 @@
 
 
 
-.el-input-group__append, .el-input-group__prepend, .el-input__inner, .el-textarea__inner { 
+.el-input-group__append, .el-input-group__prepend, .el-textarea__inner { 
     overflow: overlay !important;
 }
-.el-input-group__append, .el-input-group__prepend, .el-input__inner, .el-textarea__inner::-webkit-scrollbar { 
+.el-input-group__append, .el-input-group__prepend, .el-textarea__inner::-webkit-scrollbar { 
     width:4px ;
 }
 
-.el-input-group__append, .el-input-group__prepend, .el-input__inner, .el-textarea__inner::-webkit-scrollbar-thumb {
+.el-input-group__append, .el-input-group__prepend, .el-textarea__inner::-webkit-scrollbar-thumb {
     background: #363d50;
     border-radius: 10px;
     box-shadow: inset 7px 7px 12px #363D50;
 }
 
-.el-input-group__append, .el-input-group__prepend, .el-input__inner, .el-textarea__inner::-webkit-scrollbar-track {
+.el-input-group__append, .el-input-group__prepend, .el-textarea__inner::-webkit-scrollbar-track {
    
     border-radius: 10px;
 }
